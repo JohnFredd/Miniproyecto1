@@ -23,11 +23,11 @@ import javax.swing.UIManager;
  */
 public class Plantilla extends JFrame implements ActionListener, MouseListener {
     
-    private JLabel lblFondo;
-    private JLabel lblTitulo;
-    private JButton btnVolver;
-    private JTextArea txtAInfo;
-    private JScrollPane scroll;
+    protected JLabel lblFondo;
+    protected JLabel lblTitulo;
+    protected JButton btnVolver;
+    protected JTextArea txtAInfo;
+    protected JScrollPane scroll;
     
     public Plantilla(String titulo) {
         iniciarComponentes();
@@ -113,5 +113,4 @@ public class Plantilla extends JFrame implements ActionListener, MouseListener {
             btnVolver.setForeground(Color.BLACK);
         }
     }
-    
 }

@@ -7,12 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.*;
 
 public class InicioGUI2 extends Plantilla implements ActionListener{
     
@@ -22,18 +21,13 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
     private JButton btnContinuar;
     private JButton btnComoJugar;
 
-    public InicioGUI2(){
-        iniciarComponentes();
+    public InicioGUI2(String titulo){
+        super(titulo);
         esNumero(txtIngresarNombre);
-        setSize(600,450);
-        setVisible(true);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Inicio");
         }
     
-    private void iniciarComponentes() {
+    @Override
+    public void iniciarComponentes() {
         
         //ETIQUETA INGRESAR NOMBRE
         lblIngresarNombre = new JLabel("Ingresa tu nombre", SwingConstants.CENTER);
@@ -48,7 +42,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
         txtIngresarNombre.setEnabled(true);
         txtIngresarNombre.setVisible(true);
         txtIngresarNombre.setBackground(Color.WHITE);
-        txtIngresarNombre.setBounds(0, 0, 140, 30);
+        txtIngresarNombre.setBounds(418, 335, 140, 30);
         txtIngresarNombre.setHorizontalAlignment(JTextField.CENTER);
         this.add(txtIngresarNombre);
 
@@ -61,6 +55,9 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
         btnParaQueSirve.setBackground(Color.WHITE);
         btnParaQueSirve.setFont(new Font("chiller",Font.BOLD,22));
         btnParaQueSirve.addActionListener(this);
+        btnParaQueSirve.setFocusPainted(false);
+        btnParaQueSirve.addMouseListener(this);
+        btnParaQueSirve.setRolloverEnabled(false);
         this.add(btnParaQueSirve);
         
         //BOTON COMO JUGAR
@@ -72,27 +69,37 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
         btnComoJugar.setBackground(Color.WHITE);
         btnComoJugar.setFont(new Font("chiller",Font.BOLD,22));
         btnComoJugar.addActionListener(this);
+        btnComoJugar.setFocusPainted(false);
+        btnComoJugar.addMouseListener(this);
+        btnComoJugar.setRolloverEnabled(false);
         this.add(btnComoJugar);
         
         //BOTON CONTINUAR
         btnContinuar = new JButton("Continuar");
         btnContinuar.setEnabled(true);
         btnContinuar.setVisible(true);
-        btnContinuar.setBounds(0, 35, 140,30);
+        btnContinuar.setBounds(418, 370, 140,30);
         btnContinuar.setForeground(Color.BLACK);
         btnContinuar.setBackground(Color.WHITE);
         btnContinuar.setFont(new Font("chiller",Font.BOLD,22));
         btnContinuar.addActionListener(this);
+        btnContinuar.setFocusPainted(false);
+        btnContinuar.addMouseListener(this);
+        btnContinuar.setRolloverEnabled(false);
         this.add(btnContinuar);
         
-        Plantilla.iniciarComponentes();
+        super.iniciarComponentes();
+        
+        //CONFIGURACION SOBRE PLANTILLA
+        btnVolver.setVisible(false);
+        txtAInfo.setVisible(false);
+        scroll.setVisible(false);
     }
     
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        if(e.getSource() == btnParaQueSirve){
+        /*if(e.getSource() == btnParaQueSirve){
             
             lblTitulo.setText("PARA QUÉ SIRVE");
             lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
@@ -124,28 +131,27 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
 
                 
             }
-        }
-      
+        }*/
     }
     
     //Abre ventana Configuracion de Ronda
     public void irConfiguracionRonda(){
-        ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI;;
+        /*ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI;;
         ventanaConfigRonda.setVisible(true);
-        this.dispose();
+        this.dispose();*/
     }
     //Abre ventana Para que sirve
     public void irParaQueSirve(){
-        ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI;
+        /*ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI;
         ventanaParaQueSirve.setVisible(true);
-        this.dispose();
+        this.dispose();*/
     }
     
     //Abre ventana Como jugar
     public void irComoJugar(){
-        ComoJugarGUI ventanaComoJugar = new ComoJugarGUI;
+        /*ComoJugarGUI ventanaComoJugar = new ComoJugarGUI;
         ventanaComoJugar.setVisible(true);
-        this.dispose();
+        this.dispose();*/
     }
  
     private void esNumero(JTextField a){
@@ -158,6 +164,42 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
                     }
             }
         });
+    }
+    
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        if(e.getSource() == btnParaQueSirve){
+            btnParaQueSirve.setBackground(Color.BLACK);
+            btnParaQueSirve.setForeground(Color.WHITE);
+        }
+        
+        if(e.getSource() == btnComoJugar){
+            btnComoJugar.setBackground(Color.BLACK);
+            btnComoJugar.setForeground(Color.WHITE);
+        }
+        
+        if(e.getSource() == btnContinuar){
+            btnContinuar.setBackground(Color.BLACK);
+            btnContinuar.setForeground(Color.WHITE);
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        if(e.getSource() == btnParaQueSirve){
+            btnParaQueSirve.setBackground(Color.WHITE);
+            btnParaQueSirve.setForeground(Color.BLACK);
+        }
+        
+        if(e.getSource() == btnComoJugar){
+            btnComoJugar.setBackground(Color.WHITE);
+            btnComoJugar.setForeground(Color.BLACK);
+        }
+        
+        if(e.getSource() == btnContinuar){
+            btnContinuar.setBackground(Color.WHITE);
+            btnContinuar.setForeground(Color.BLACK);
+        }
     }
 
 }
