@@ -388,26 +388,26 @@ public class InicioGUI extends JFrame implements ActionListener, ItemListener{
         if (txtIngresarNombre.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre para continuar", "Error", JOptionPane.WARNING_MESSAGE);
             }
-        if (txtIngresarNombre.getText().contains(".")){
-            JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre válido para continuar", "Error", JOptionPane.WARNING_MESSAGE);
+            if (txtIngresarNombre.getText().contains(".")){
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre válido para continuar", "Error", JOptionPane.WARNING_MESSAGE);
 
-        }
-        else if(ae.getSource() == btnContinuar){
-            panel2.setVisible(false);
-            btnParaQueSirve.setVisible(false);
-            btnComoJugar.setVisible(false);
-            btnContinuar.setVisible(false);
-            lblIngresarNombre.setVisible(false);
-            txtIngresarNombre.setVisible(false);
-            
-            combTematica.setVisible(true);
-            lblPalPorRonda.setVisible(true);
-            txtPalPorRonda.setVisible(true);
-            btnJugar.setVisible(true);
-            btnVolver2.setVisible(true);
-            nombre = txtIngresarNombre.getText();
-            System.out.println("Mi nombre es: "+ nombre);
-            }
+                }
+                else if(txtIngresarNombre.getText().length()>=1){
+                    panel2.setVisible(false);
+                    btnParaQueSirve.setVisible(false);
+                    btnComoJugar.setVisible(false);
+                    btnContinuar.setVisible(false);
+                    lblIngresarNombre.setVisible(false);
+                    txtIngresarNombre.setVisible(false);
+
+                    combTematica.setVisible(true);
+                    lblPalPorRonda.setVisible(true);
+                    txtPalPorRonda.setVisible(true);
+                    btnJugar.setVisible(true);
+                    btnVolver2.setVisible(true);
+                    nombre = txtIngresarNombre.getText();
+                    System.out.println("Mi nombre es: "+ nombre);
+                    }
         }
     
     if(ae.getSource() == btnJugar){
