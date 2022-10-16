@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +24,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
 
     public InicioGUI2(){
         iniciarComponentes();
+        esNumero(txtIngresarNombre);
         setSize(600,450);
         setVisible(true);
         setLocationRelativeTo(null);
@@ -95,11 +98,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
             lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
             lblTitulo.setFont(new Font("chiller",Font.BOLD,42));
             lblTitulo.setForeground(Color.WHITE);
-
-            ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI;
-            ventanaParaQueSirve.setVisible(true);
-            this.dispose();
-
+            irParaQueSirve();
         }
         
         if(e.getSource() == btnComoJugar){
@@ -108,10 +107,8 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
             lblTitulo.setBounds(168, 22, 240,30);  // En minúsculas 430,22,130,30
             lblTitulo.setFont(new Font("chiller",Font.BOLD,42));
             lblTitulo.setForeground(Color.WHITE);
-
-            btnComoJugarGUI ventanaComoJugar = new ComoJugarGUI;
-            ventanaComoJugar.setVisible(true);
-            this.dispose();
+            irComoJugar();
+            
         }
         
         if(e.getSource() == btnContinuar){
@@ -123,14 +120,44 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
 
             }
             else if(txtIngresarNombre.getText().length()>=1){
+                this.configuracionRonda();
 
-                ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI;;
-                ventanaConfigRonda.setVisible(true);
-                this.dispose();
+                
             }
         }
       
     }
-
     
+    //Abre ventana Configuracion de Ronda
+    public void irConfiguracionRonda(){
+        ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI;;
+        ventanaConfigRonda.setVisible(true);
+        this.dispose();
+    }
+    //Abre ventana Para que sirve
+    public void irParaQueSirve(){
+        ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI;
+        ventanaParaQueSirve.setVisible(true);
+        this.dispose();
+    }
+    
+    //Abre ventana Como jugar
+    public void irComoJugar(){
+        ComoJugarGUI ventanaComoJugar = new ComoJugarGUI;
+        ventanaComoJugar.setVisible(true);
+        this.dispose();
+    }
+ 
+    private void esNumero(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (Character.isDigit(c)){
+                    e.consume();
+                    }
+            }
+        });
+    }
+
 }
