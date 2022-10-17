@@ -1,6 +1,7 @@
 
 package Ventana;
 
+import Logica.Juego;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -8,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -24,12 +27,21 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
     protected JTextField txtPalPorRonda;
     protected JButton btnJugar;
     protected String nombreDelJugador;
-    //protected Juego juego;
+    protected Juego juego;
 
-    public ConfiguracionRondaGUI(String titulo){
+    public ConfiguracionRondaGUI(String titulo, Juego juego){
         super(titulo);
-        
+        esTexto(txtPalPorRonda);
+        this.juego = juego;
+        nombreDelJugador = null;
     }
+    public ConfiguracionRondaGUI(String titulo, String nombreDelJugador){
+        super(titulo);
+        esTexto(txtPalPorRonda);
+        juego = null;
+        this.nombreDelJugador = nombreDelJugador;
+    }   
+    
     
     public void iniciarComponentes(){
         
@@ -136,6 +148,18 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
             else setText(valor.toString());
             return this;
         }
+    }
+    
+    private void esTexto(JTextField a){
+        a.addKeyListener(new KeyAdapter(){
+            @Override
+            public void keyTyped(KeyEvent e){
+                char c = e.getKeyChar();
+                if (!Character.isDigit(c)){
+                    e.consume();
+                    }
+            }
+        });
     }
     
 

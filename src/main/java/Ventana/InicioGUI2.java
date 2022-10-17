@@ -139,7 +139,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
     
     //Abre ventana Configuracion de Ronda
     public void irConfiguracionRonda(){
-        ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI("Configuración de ronda");
+        ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI("Configuración de ronda",txtIngresarNombre.getText());
         ventanaConfigRonda.setVisible(true);
         this.dispose();
     }
