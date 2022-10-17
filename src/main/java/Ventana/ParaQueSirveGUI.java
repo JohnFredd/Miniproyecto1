@@ -5,10 +5,12 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 
 
-public class ParaQueSirveGUI extends Plantilla implements ActionListener{
+public class ParaQueSirveGUI extends Plantilla implements ActionListener, MouseListener{
     protected JButton btnComoJugar;
     
     public ParaQueSirveGUI(String titulo){
@@ -26,6 +28,9 @@ public class ParaQueSirveGUI extends Plantilla implements ActionListener{
         btnComoJugar.setBackground(Color.WHITE);
         btnComoJugar.setFont(new Font("chiller",Font.BOLD,22));
         btnComoJugar.addActionListener(this);
+        btnComoJugar.setFocusPainted(false);
+        btnComoJugar.addMouseListener(this);
+        btnComoJugar.setRolloverEnabled(false);
         this.add(btnComoJugar);
       
         super.iniciarComponentes();
@@ -33,15 +38,15 @@ public class ParaQueSirveGUI extends Plantilla implements ActionListener{
         //CONFIGURACION PLANTILLA
         txtAInfo.setText(""" 
 
-                                   El tradicional juego del ahorcado pone a prueba el ingenio del jugador,
-                                   su conocimiento del vocabulario involucrado y su capacidad de crear 
-                                   estrategias para adivinar cada palabra y hacer deducciones, mientras 
-                                   pasa un rato divertido jugando y aprendiendo al mismo tiempo.
+                                   El tradicional juego del ahorcado pone a prueba el ingenio del jugador, su 
+                                   conocimiento del vocabulario involucrado y su capacidad de crear estrategias
+                                   para adivinar cada palabra y hacer deducciones, mientras pasa un rato 
+                                   divertido jugando y aprendiendo al mismo tiempo.
 
-                                   El juego del ahorcado se convierte en una estrategia divertida de 
-                                   enseñanza, en donde los estudiantes podrán adquirir nuevo vocabulario,
-                                   aprender reglas gramáticales y de pronunciación e incluso entrenar su 
-                                   concentración y atención,de manera divertida.
+                                   El juego del ahorcado se convierte en una estrategia divertida de enseñanza, 
+                                   en donde los estudiantes podrán adquirir nuevo vocabulario, aprender reglas 
+                                   gramáticales y de pronunciación e incluso entrenar su concentración y 
+                                   atención de una manera lúdica.
 
                                  """);       
 
@@ -56,14 +61,33 @@ public class ParaQueSirveGUI extends Plantilla implements ActionListener{
         if(ae.getSource() == btnComoJugar)
             irComoJugar();
     
-    
-    
     }
     
     //Abre ventana Como jugar
     public void irComoJugar(){
-        /*ComoJugarGUI ventanaComoJugar = new ComoJugarGUI("Cómo jugar");
+        ComoJugarGUI ventanaComoJugar = new ComoJugarGUI("Cómo jugar");
         ventanaComoJugar.setVisible(true);
-        this.dispose();*/
+        this.dispose();
     }
+    
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        super.mouseEntered(e);
+        if(e.getSource() == btnComoJugar){
+            btnComoJugar.setBackground(Color.BLACK);
+            btnComoJugar.setForeground(Color.WHITE);
+        }
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        super.mouseExited(e);
+        if(e.getSource() == btnComoJugar){
+            btnComoJugar.setBackground(Color.WHITE);
+            btnComoJugar.setForeground(Color.BLACK);
+        }
+        
+    }    
+    
 }

@@ -3,7 +3,9 @@ package Ventana;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 
 public class ComoJugarGUI extends Plantilla implements ActionListener{
@@ -20,21 +22,25 @@ public class ComoJugarGUI extends Plantilla implements ActionListener{
         btnParaQueSirve = new JButton("Para qué sirve");
         btnParaQueSirve.setEnabled(true);
         btnParaQueSirve.setVisible(true);
-        btnParaQueSirve.setBounds(10, 370, 140,30);
+        btnParaQueSirve.setBounds(160, 370, 140,30);
         btnParaQueSirve.setForeground(Color.BLACK);
         btnParaQueSirve.setBackground(Color.WHITE);
         btnParaQueSirve.setFont(new Font("chiller",Font.BOLD,22));
         btnParaQueSirve.addActionListener(this);
+        btnParaQueSirve.setFocusPainted(false);
+        btnParaQueSirve.addMouseListener(this);
+        btnParaQueSirve.setRolloverEnabled(false);
         this.add(btnParaQueSirve);
         
         super.iniciarComponentes();
         txtAInfo.setText("""
+                              
                               El jugador deberá ingresar su nombre y presionar en el botón de continuar. 
                             
                               Antes de iniciar a jugar, se deberá de configurar la ronda de juego. 
-                              Para ello, primero seleccione una de las temáticas para las palabras a adivinar 
-                              disponibles en la lista desplegable, luego ingrese la cantidad de palabras 
-                              que desea adivinar en la ronda.
+                              Para ello, primero seleccione una de las temáticas para las palabras a 
+                              adivinar disponibles en la lista desplegable, luego ingrese la cantidad 
+                              de palabras que desea adivinar en la ronda.
                             
                               **Podrá adivinar un mínimo de 1 palabra y un máximo de 10 palabras**
                               
@@ -42,8 +48,8 @@ public class ComoJugarGUI extends Plantilla implements ActionListener{
                               
                               Una vez comenzado el juego, el objetivo del jugador será adivinar la mayor 
                               cantidad de palabras, de acuerdo a la cantidad indicada.
-                              En pantalla se mostrarán una serie de líneas, una por cada letra de la palabra 
-                              a adivinar, indicando el largo de la misma.
+                              En pantalla se mostrarán una serie de líneas, una por cada letra de la 
+                              palabra a adivinar, indicando el largo de la misma.
                             
                               El jugador contará con 10 intentos para adivinar la palabra secreta. 
                               Podrá seleccionar las letras del abecedario en el orden en el que desee o 
@@ -65,7 +71,7 @@ public class ComoJugarGUI extends Plantilla implements ActionListener{
                               temática y cantidad de palabras a adivinar si así lo desea, o finalizar el 
                               juego, presionando en NO.
                               
-                              Si elige no jugar otra ronda, se mostrarán las estadísticas generales de juego. 
+                              Si elige no jugar otra ronda, se mostrarán las estadísticas generales de juego 
                               Un nuevo jugador podrá comenzar un juego presionando en 
                               VOLVER AL INICIO.
                             
@@ -77,6 +83,41 @@ public class ComoJugarGUI extends Plantilla implements ActionListener{
         lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
     
     }
+
+    @Override
+    public void actionPerformed(ActionEvent ae){
+        super.actionPerformed(ae);
+        if(ae.getSource() == btnParaQueSirve)
+            irParaQueSirve();
     
+    }
+
+    //Abre ventana Para que sirve
+    public void irParaQueSirve(){
+        
+        ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI("Para qué sirve");
+        ventanaParaQueSirve.setVisible(true);
+        this.dispose();
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        super.mouseEntered(e);
+        if(e.getSource() == btnParaQueSirve){
+            btnParaQueSirve.setBackground(Color.BLACK);
+            btnParaQueSirve.setForeground(Color.WHITE);
+        }
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        super.mouseExited(e);
+        if(e.getSource() == btnParaQueSirve){
+            btnParaQueSirve.setBackground(Color.WHITE);
+            btnParaQueSirve.setForeground(Color.BLACK);
+        }
+        
+    }    
     
 }
