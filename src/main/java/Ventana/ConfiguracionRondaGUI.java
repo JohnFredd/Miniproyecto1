@@ -2,6 +2,7 @@
 package Ventana;
 
 import Logica.Juego;
+import Logica.Ronda;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
@@ -16,6 +17,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
@@ -38,6 +40,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
     public ConfiguracionRondaGUI(String titulo, String nombreDelJugador){
         super(titulo);
         esTexto(txtPalPorRonda);
+
         juego = null;
         this.nombreDelJugador = nombreDelJugador;
     }   
@@ -95,38 +98,55 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        super.actionPerformed(e);
+        
+        if(e.getSource() == btnVolver){
+        juego = new Juego("Hernán");
+            if(juego == null){
+                super.actionPerformed(e);
+                
+            } else{
+                int resp = JOptionPane.showConfirmDialog(null, "Hay una partida en curso, si regresas ahora mismo se finalizará. \n                                  ¿Deseas regresar?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+                if(resp == JOptionPane.YES_OPTION){
+                    irResultadosJuego();
+                }
+
+            }
+        }
         
         if(e.getSource() == btnJugar){
-            /*
-            int tematica = combTematica.getSelectedItem();
-            int palPorRonda = Integer.parseInt(txtPalPorRonda.getText());
-            boolean hayPartida = true;
-            System.out.println("Temática: "+ tematica);
-            System.out.println("PPr: "+ palPorRonda);*/
-            
-            //irPpal();
+            String tematica = (String)combTematica.getSelectedItem();
+            int palabrasTotales = Integer.parseInt(txtPalPorRonda.getText());
+            if (juego == null){
+                juego = new Juego(nombreDelJugador);
+            }
+            Ronda ronda = new Ronda(juego, tematica, palabrasTotales);
+            irPpal(juego, ronda);
             
 
-    }
+        }
 
     }
-    /*
+    
     //Abre ventana Como jugar
-    public void irPpal(){
-        PpalGUI ventanaPpal = new PpalGUI;
+    public void irPpal(Juego juego,Ronda ronda){
+        PpalGUI ventanaPpal = new PpalGUI(juego, ronda);
         ventanaPpal.setVisible(true);
-        this.dispose
+        this.dispose();
     }
-    */
+    
     @Override
     public void itemStateChanged(ItemEvent e) {
         
         if(e.getSource() == combTematica) {
             String tematica=(String)combTematica.getSelectedItem();
             setTitle(tematica);
-        
         }
+    }
+
+    private void irResultadosJuego() {
+        ResultadosJuegoGUI ventanaResultadosJuego = new ResultadosJuegoGUI("Resultados juego", juego);
+        ventanaResultadosJuego.setVisible(true);
+        this.dispose();
     }
     
     // Clase para asignar título principal al ComboBox Temática
@@ -162,7 +182,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         });
     }
     
-
+    
 
     
 }

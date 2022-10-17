@@ -104,6 +104,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
             if (txtIngresarNombre.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre para continuar", "Error", JOptionPane.WARNING_MESSAGE);
             } else if(txtIngresarNombre.getText().length()>=1) {
+                
                 irConfiguracionRonda();
             }
         }
