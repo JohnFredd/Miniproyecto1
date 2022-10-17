@@ -84,5 +84,4 @@ public class Palabra {
     public void setNumeroPalabra(int numeroPalabra) {
         this.numeroPalabra = numeroPalabra;
     }
-
 }

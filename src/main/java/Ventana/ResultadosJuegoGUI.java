@@ -5,7 +5,7 @@ import Logica.Juego;
 
 
 public class ResultadosJuegoGUI extends Plantilla{
-    
+  
     private Juego juego;
     
     public ResultadosJuegoGUI(Juego juego){
