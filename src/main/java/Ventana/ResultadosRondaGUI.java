@@ -95,11 +95,13 @@ public class ResultadosRondaGUI extends Plantilla {
         double percAdivinadas = adivinadas * 100 / total;
         int noAdivinadas = ronda.getPalabrasNoAdivinadas();
         double percNoAdivinadas = noAdivinadas * 100 / total;
-        txtAInfo.setText(
-            "\n   Cantidad de palabras adivinadas:   " + String.valueOf(adivinadas) + "\n" +
-            "   Porcentaje:   " + String.valueOf(percAdivinadas) + "%\n" +
-            "\n   Cantidad de palabras no adivinadas:   " + String.valueOf(noAdivinadas) + "\n" +
-            "   Porcentaje:   " + String.valueOf(percNoAdivinadas) + "%");
+        txtAInfo.setText("\n   Cantidad de palabras adivinadas:   ");
+        txtAInfo.append(String.valueOf(adivinadas) + "\n");
+        txtAInfo.append("   Porcentaje:   ");
+        txtAInfo.append(String.valueOf(percAdivinadas) + "%\n");
+        txtAInfo.append("\n   Cantidad de palabras no adivinadas:   ");
+        txtAInfo.append(String.valueOf(noAdivinadas) + "\n");
+        txtAInfo.append("   Porcentaje:   " + String.valueOf(percNoAdivinadas) + "%");
     }
     
     @Override
