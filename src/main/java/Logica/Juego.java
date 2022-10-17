@@ -9,8 +9,14 @@ public class Juego {
     private double porcentajeMayor;
     private int rondaMenorAcierto;
     private double porcentajeMenor;
-    private String palabraMasAcertada;
-    private int aciertosPalabra;
+    private int[] palabrasVsAciertos;
+    private String[][] palabrasVsTematica = {
+    {"Perro","Animales"},
+    {"Gato","Animales"},
+    {"Amarillo","Colores"},
+    {"Azul","Colores"},
+    {"Papaya","Frutas"},
+    {"Manzana","Frutas"}};
     
     public Juego(String nombreJugador) {
         this.nombreJugador = nombreJugador;
@@ -19,13 +25,12 @@ public class Juego {
         porcentajeMayor = 0;
         rondaMenorAcierto = 0;
         porcentajeMenor = 0;
-        palabraMasAcertada = "";
-        aciertosPalabra = 0;
+        palabrasVsAciertos = new int[6];
     }
     
-    public void actualizarDatosDeJuego(double porcentajeAciertoRonda, String palabraMasAcertada, int aciertosPalabra) {
+    public void actualizarDatosDeJuego(double porcentajeAciertoRonda, int[] palabrasVsAciertos) {
         actualizarDatosDeRonda(porcentajeAciertoRonda);
-        actualizarDatosDePalabra(palabraMasAcertada, aciertosPalabra);
+        actualizarDatosDePalabra(palabrasVsAciertos);
     }
     
     public void actualizarDatosDeRonda(double porcentajeAciertoRonda) {
@@ -42,10 +47,9 @@ public class Juego {
         }
     }
     
-    public void actualizarDatosDePalabra(String palabraMasAcertada, int aciertosPalabra) {
-        if (this.aciertosPalabra<aciertosPalabra) {
-            this.palabraMasAcertada = palabraMasAcertada;
-            this.aciertosPalabra = aciertosPalabra;
+    public void actualizarDatosDePalabra(int[] palabrasVsAciertos) {
+        for (int i = 0;i<this.palabrasVsAciertos.length;i++) {
+            this.palabrasVsAciertos[i] += palabrasVsAciertos[i];
         }
     }
 
@@ -97,19 +101,19 @@ public class Juego {
         this.porcentajeMenor = porcentajeMenor;
     }
 
-    public String getPalabraMasAcertada() {
-        return palabraMasAcertada;
+    public int[] getPalabrasVsAciertos() {
+        return palabrasVsAciertos;
     }
 
-    public void setPalabraMasAcertada(String palabraMasAcertada) {
-        this.palabraMasAcertada = palabraMasAcertada;
+    public void setPalabrasVsAciertos(int[] palabrasVsAciertos) {
+        this.palabrasVsAciertos = palabrasVsAciertos;
     }
 
-    public int getAciertosPalabra() {
-        return aciertosPalabra;
+    public String[][] getPalabrasVsTematica() {
+        return palabrasVsTematica;
     }
 
-    public void setAciertosPalabra(int aciertosPalabra) {
-        this.aciertosPalabra = aciertosPalabra;
+    public void setPalabrasVsTematica(String[][] palabrasVsTematica) {
+        this.palabrasVsTematica = palabrasVsTematica;
     }
 }
