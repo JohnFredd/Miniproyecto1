@@ -99,7 +99,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         
         if(e.getSource() == btnJugar){
             /*
-            int tematica = combTematica.getSelectedIndex();
+            int tematica = combTematica.getSelectedItem();
             int palPorRonda = Integer.parseInt(txtPalPorRonda.getText());
             boolean hayPartida = true;
             System.out.println("Temática: "+ tematica);

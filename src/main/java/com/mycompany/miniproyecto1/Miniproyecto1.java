@@ -1,7 +1,6 @@
 package com.mycompany.miniproyecto1;
 
 import Ventana.InicioGUI2;
-import Ventana.Plantilla;
 
 public class Miniproyecto1 {
 
