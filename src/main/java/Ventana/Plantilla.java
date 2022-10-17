@@ -17,10 +17,6 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 
-/**
- *
- * @author John
- */
 public class Plantilla extends JFrame implements ActionListener, MouseListener {
     
     protected JLabel lblFondo;
@@ -80,8 +76,8 @@ public class Plantilla extends JFrame implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == btnVolver){
-            InicioGUI ventanaInicioGUI = new InicioGUI();
-            ventanaInicioGUI.setVisible(true);
+            InicioGUI2 ventanaInicioGUI2 = new InicioGUI2("Inicio");
+            ventanaInicioGUI2.setVisible(true);
             this.dispose();
         }
     }
