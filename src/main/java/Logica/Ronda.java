@@ -1,17 +1,19 @@
 
 package Logica;
 
+import java.util.LinkedList;
+
 public class Ronda {
     
     private Juego juego;
-    private int tematica;
+    private String tematica;
     private int palabrasTotales;
     private int palabrasAdivinadas;
     private int palabrasNoAdivinadas;
     private int palabraActual;
     private int[] palabrasVsAciertos;
     
-    public Ronda(Juego juego, int tematica, int palabrasTotales){
+    public Ronda(Juego juego, String tematica, int palabrasTotales){
         this.juego = juego;
         this.tematica = tematica;
         this.palabrasTotales = palabrasTotales;
@@ -32,8 +34,16 @@ public class Ronda {
     }
     
     public int escogerPalabra() {
-        int cantidadPalabras = juego.getPalabrasVsAciertos().length;
-        int palabraEscogida = (int)(Math.random()*cantidadPalabras);
+        int palabraEscogida;
+        while(true) {
+            palabraEscogida = (int)(Math.random()*juego.getPalabrasVsTematica().length);
+            if (juego.getPalabrasVsTematica()[palabraEscogida][1] == tematica) {
+                break;
+            }
+        }
         return palabraEscogida;
+        /*int cantidadPalabras = juego.getPalabrasVsAciertos().length;
+        int palabraEscogida = (int)(Math.random()*cantidadPalabras);
+        return palabraEscogida;*/
     }
 }

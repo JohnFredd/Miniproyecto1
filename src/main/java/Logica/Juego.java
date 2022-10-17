@@ -25,7 +25,7 @@ public class Juego {
         porcentajeMayor = 0;
         rondaMenorAcierto = 0;
         porcentajeMenor = 0;
-        palabrasVsAciertos = new int[6];
+        palabrasVsAciertos = new int[palabrasVsTematica.length];
     }
     
     public void actualizarDatosDeJuego(double porcentajeAciertoRonda, int[] palabrasVsAciertos) {
