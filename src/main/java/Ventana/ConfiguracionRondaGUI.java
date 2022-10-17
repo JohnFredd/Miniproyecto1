@@ -100,7 +100,6 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
     public void actionPerformed(ActionEvent e) {
         
         if(e.getSource() == btnVolver){
-        juego = new Juego("Hernán");
             if(juego == null){
                 super.actionPerformed(e);
                 
