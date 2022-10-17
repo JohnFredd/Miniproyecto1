@@ -45,8 +45,8 @@ public class ParaQueSirveGUI extends Plantilla implements ActionListener{
 
                                  """);       
 
-        lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
-        lblTitulo.setFont(new Font("chiller",Font.BOLD,42));     
+        lblTitulo.setText("Para qué sirve");
+        lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30    
     
     }
     

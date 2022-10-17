@@ -60,7 +60,7 @@ public class Plantilla extends JFrame implements ActionListener, MouseListener {
         //TEXTAREA
         txtAInfo = new JTextArea();
         txtAInfo.setEditable(false);
-        txtAInfo.setFont(new Font("Lato",Font.PLAIN,17));
+        txtAInfo.setFont(new Font("Calibri",Font.PLAIN,17));
         scroll = new JScrollPane(txtAInfo);
         scroll.setBounds(20, 76, 545, 270);
         this.add(scroll);
