@@ -36,4 +36,54 @@ public class Palabra {
     public boolean acerto() {
         return palabraSecreta == miPalabra;
     }
+
+    public int getIntentosTotales() {
+        return intentosTotales;
+    }
+
+    public void setIntentosTotales(int intentosTotales) {
+        this.intentosTotales = intentosTotales;
+    }
+
+    public int getIntentosEjecutados() {
+        return intentosEjecutados;
+    }
+
+    public void setIntentosEjecutados(int intentosEjecutados) {
+        this.intentosEjecutados = intentosEjecutados;
+    }
+
+    public char[] getPalabraSecreta() {
+        return palabraSecreta;
+    }
+
+    public void setPalabraSecreta(char[] palabraSecreta) {
+        this.palabraSecreta = palabraSecreta;
+    }
+
+    public char[] getMiPalabra() {
+        return miPalabra;
+    }
+
+    public void setMiPalabra(char[] miPalabra) {
+        this.miPalabra = miPalabra;
+    }
+
+    public boolean isAciertaPalabra() {
+        return aciertaPalabra;
+    }
+
+    public void setAciertaPalabra(boolean aciertaPalabra) {
+        this.aciertaPalabra = aciertaPalabra;
+    }
+
+    public int getNumeroPalabra() {
+        return numeroPalabra;
+    }
+
+    public void setNumeroPalabra(int numeroPalabra) {
+        this.numeroPalabra = numeroPalabra;
+    }
+    
+    
 }

@@ -46,4 +46,62 @@ public class Ronda {
         int palabraEscogida = (int)(Math.random()*cantidadPalabras);
         return palabraEscogida;*/
     }
+
+    public Juego getJuego() {
+        return juego;
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
+    }
+
+    public String getTematica() {
+        return tematica;
+    }
+
+    public void setTematica(String tematica) {
+        this.tematica = tematica;
+    }
+
+    public int getPalabrasTotales() {
+        return palabrasTotales;
+    }
+
+    public void setPalabrasTotales(int palabrasTotales) {
+        this.palabrasTotales = palabrasTotales;
+    }
+
+    public int getPalabrasAdivinadas() {
+        return palabrasAdivinadas;
+    }
+
+    public void setPalabrasAdivinadas(int palabrasAdivinadas) {
+        this.palabrasAdivinadas = palabrasAdivinadas;
+    }
+
+    public int getPalabrasNoAdivinadas() {
+        return palabrasNoAdivinadas;
+    }
+
+    public void setPalabrasNoAdivinadas(int palabrasNoAdivinadas) {
+        this.palabrasNoAdivinadas = palabrasNoAdivinadas;
+    }
+
+    public int getPalabraActual() {
+        return palabraActual;
+    }
+
+    public void setPalabraActual(int palabraActual) {
+        this.palabraActual = palabraActual;
+    }
+
+    public int[] getPalabrasVsAciertos() {
+        return palabrasVsAciertos;
+    }
+
+    public void setPalabrasVsAciertos(int[] palabrasVsAciertos) {
+        this.palabrasVsAciertos = palabrasVsAciertos;
+    }
+    
+    
 }
