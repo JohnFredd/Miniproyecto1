@@ -44,11 +44,9 @@ public class ParaQueSirveGUI extends Plantilla implements ActionListener{
                                    concentración y atención,de manera divertida.
 
                                  """);       
-        btnVolver.setVisible(true);
-        lblTitulo.setText("PARA QUÉ SIRVE");
+
         lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
-        lblTitulo.setFont(new Font("chiller",Font.BOLD,42));
-        lblTitulo.setForeground(Color.WHITE);     
+        lblTitulo.setFont(new Font("chiller",Font.BOLD,42));     
     
     }
     
