@@ -84,7 +84,7 @@ public class ResultadosRondaGUI extends Plantilla {
     }
     
     public void irResultadosJuego() {
-        ResultadosJuegoGUI ventanaResultadosJuego = new ResultadosJuegoGUI();
+        ResultadosJuegoGUI ventanaResultadosJuego = new ResultadosJuegoGUI("Resultados juego", juego);
         ventanaResultadosJuego.setVisible(true);
         this.dispose();
     }
