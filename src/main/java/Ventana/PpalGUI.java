@@ -63,7 +63,6 @@ public class PpalGUI extends JFrame implements ActionListener{
         lblImagen = new JLabel();
         ImageIcon imagenes = new ImageIcon("/RecursosImages/1.png");
         lblImagen.setIcon(new ImageIcon(imagenes.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH)));
-        }
         
         String intentosTotales = String.valueOf(palabra.getIntentosTotales());
         String intentosEjecutados = String.valueOf(palabra.getIntentosEjecutados());
@@ -98,12 +97,28 @@ public class PpalGUI extends JFrame implements ActionListener{
 
 
     }
+
+    public boolean finDeLaPalabra() {
+        if (palabra.acerto() == true) {
+            return true;
+        }
+        return palabra.getIntentosEjecutados() == palabra.getIntentosTotales();
+    }
     
+    public void otraPalabra() {
+        int numPalabra = ronda.escogerPalabra();
+        palabra = new Palabra(numPalabra, juego);
+    }
+    
+    public void irResultadosRonda() {
+        ResultadosRondaGUI ventanaResultadosRonda = new ResultadosRondaGUI("Resultados ronda", ronda, juego);
+        ventanaResultadosRonda.setVisible(true);
+        this.dispose();
+    }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
-
     
 }

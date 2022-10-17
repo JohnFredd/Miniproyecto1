@@ -42,9 +42,6 @@ public class Ronda {
             }
         }
         return palabraEscogida;
-        /*int cantidadPalabras = juego.getPalabrasVsAciertos().length;
-        int palabraEscogida = (int)(Math.random()*cantidadPalabras);
-        return palabraEscogida;*/
     }
 
     public Juego getJuego() {

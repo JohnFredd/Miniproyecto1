@@ -29,9 +29,10 @@ public class Palabra {
             if (letraIngresada == palabraSecreta[i]) {
                 miPalabra[i] = palabraSecreta[i];
                 cambios = true;
-            } else {
-                intentosEjecutados +=1;
-            } 
+            }
+        }
+        if (cambios == false) {
+            intentosEjecutados += 1;
         }
         return cambios;
     }
