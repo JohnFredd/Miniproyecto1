@@ -466,7 +466,7 @@ public class InicioGUI extends JFrame implements ActionListener, ItemListener{
     //public boolean
     
     
-    
+ 
 // Clase para asignar título principal al ComboBox Temática
   class MyComboBoxRenderer extends JLabel implements ListCellRenderer
     {
@@ -488,7 +488,7 @@ public class InicioGUI extends JFrame implements ActionListener, ItemListener{
         }
     }
     
-    
+  
   
 }
 

@@ -10,6 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -99,15 +100,17 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        /*if(e.getSource() == btnParaQueSirve){
-            
+        if(e.getSource() == btnParaQueSirve){
+            /*
             lblTitulo.setText("PARA QUÉ SIRVE");
             lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
             lblTitulo.setFont(new Font("chiller",Font.BOLD,42));
-            lblTitulo.setForeground(Color.WHITE);
+            lblTitulo.setForeground(Color.WHITE);*/
+        
+        
             irParaQueSirve();
         }
-        
+        /*
         if(e.getSource() == btnComoJugar){
             
             lblTitulo.setText("COMO JUGAR");
@@ -117,7 +120,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
             irComoJugar();
             
         }
-        
+        */
         if(e.getSource() == btnContinuar){
             if (txtIngresarNombre.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre para continuar", "Error", JOptionPane.WARNING_MESSAGE);
@@ -127,24 +130,25 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
 
             }
             else if(txtIngresarNombre.getText().length()>=1){
-                this.configuracionRonda();
+                irConfiguracionRonda();
 
                 
             }
-        }*/
+        }
     }
     
     //Abre ventana Configuracion de Ronda
     public void irConfiguracionRonda(){
-        /*ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI;;
+        ConfiguracionRondaGUI ventanaConfigRonda = new ConfiguracionRondaGUI("Configuración de ronda");
         ventanaConfigRonda.setVisible(true);
-        this.dispose();*/
+        this.dispose();
     }
     //Abre ventana Para que sirve
     public void irParaQueSirve(){
-        /*ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI;
+        
+        ParaQueSirveGUI ventanaParaQueSirve = new ParaQueSirveGUI("Para qué sirve");
         ventanaParaQueSirve.setVisible(true);
-        this.dispose();*/
+        this.dispose();
     }
     
     //Abre ventana Como jugar
