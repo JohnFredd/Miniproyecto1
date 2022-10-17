@@ -110,7 +110,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
         
             irParaQueSirve();
         }
-        /*
+        
         if(e.getSource() == btnComoJugar){
             
             lblTitulo.setText("COMO JUGAR");
@@ -120,7 +120,7 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
             irComoJugar();
             
         }
-        */
+        
         if(e.getSource() == btnContinuar){
             if (txtIngresarNombre.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un nombre para continuar", "Error", JOptionPane.WARNING_MESSAGE);
@@ -153,9 +153,9 @@ public class InicioGUI2 extends Plantilla implements ActionListener{
     
     //Abre ventana Como jugar
     public void irComoJugar(){
-        /*ComoJugarGUI ventanaComoJugar = new ComoJugarGUI;
+        ComoJugarGUI ventanaComoJugar = new ComoJugarGUI("Cómo jugar");
         ventanaComoJugar.setVisible(true);
-        this.dispose();*/
+        this.dispose();
     }
  
     private void esNumero(JTextField a){
