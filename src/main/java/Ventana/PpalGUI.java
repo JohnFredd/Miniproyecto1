@@ -4,6 +4,7 @@ package Ventana;
 import Logica.Juego;
 import Logica.Palabra;
 import Logica.Ronda;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -16,6 +17,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.SwingConstants;
 
 public class PpalGUI extends JFrame implements ActionListener{
 
@@ -23,81 +25,79 @@ public class PpalGUI extends JFrame implements ActionListener{
     private JLabel lblNombreJugador;
     private JLabel lblPalabraSecreta;
     private JTextArea txtAInfo;
-    //private JButton[] letras;
     private JLabel lblImagen;
     private JPanel panel1;
-    private JPanel panel2;
-    private JPanel panel3;
     private Palabra palabra;
     private Juego juego;
     private Ronda ronda;
     
     public PpalGUI(Juego juego, Ronda ronda){
-        super("GridBagLayout");
+        iniciarComponentes();
         this.juego = juego;
         this.ronda = ronda;
-        this.setSize(650,720);
-        this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        setSize(600,700);
+        setLocationRelativeTo(null);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Ahorcado");
-        iniciarComponentes();
-    
-    
+        setVisible(true);
     }
     
     private void iniciarComponentes() {
-        
-        GridBagLayout gbl = new GridBagLayout();
-        GridBagConstraints gbc = new GridBagConstraints();
-        
-        panel1 = new JPanel();
-        panel2 = new JPanel();
-        panel3 = new JPanel();
-        
-        panel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panel1.setLayout(new java.awt.BorderLayout());
-        
-        
-        
-        lblImagen = new JLabel();
-        ImageIcon imagenes = new ImageIcon("/RecursosImages/1.png");
-        lblImagen.setIcon(new ImageIcon(imagenes.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH)));
-        
-        String intentosTotales = String.valueOf(palabra.getIntentosTotales());
-        String intentosEjecutados = String.valueOf(palabra.getIntentosEjecutados());
-        String intentosRestantes = String.valueOf(palabra.getIntentosTotales()-palabra.getIntentosEjecutados());
 
         //TEXTAREA
         txtAInfo = new JTextArea();
         txtAInfo.setEditable(false);
-        txtAInfo.setFont(new Font("Calibri",Font.PLAIN,15));
-        txtAInfo.setText("Temática: "+"");
+        txtAInfo.setVisible(true);
+
+        String intentosTotales = String.valueOf(palabra.getIntentosTotales());
+        String intentosEjecutados = String.valueOf(palabra.getIntentosEjecutados());
+        String intentosRestantes = String.valueOf(palabra.getIntentosTotales()-palabra.getIntentosEjecutados());
+        
+        txtAInfo.setFont(new Font("Calibri",Font.PLAIN,16));
+        txtAInfo.setText("\nTemática: " + ronda.getTematica());
         txtAInfo.append("\nIntentos totales: " + intentosTotales);
-        txtAInfo.append("\nIntentos ejecutados: " + intentosEjecutados);
-        txtAInfo.append("\nIntentos restantes: " + intentosRestantes);
-        txtAInfo.setBounds(390, 20, 200, 180);
-        this.add(txtAInfo);        
-        
-        //ETIQUETA DE LA PALABRA SECRETA
-        lblPalabraSecreta = new JLabel();
-        lblPalabraSecreta.setText(String.valueOf(palabra.getMiPalabra()));
-        lblPalabraSecreta.setBounds(160, 100, 200, 30);
-        
-        //Teclado alfabetico
+        txtAInfo.append("\nIntentos ejecutados: "+intentosEjecutados);
+        txtAInfo.append("\nIntentos restantes: "+ intentosRestantes);
+        txtAInfo.setBounds(345, 65, 160, 100);
+        this.add(txtAInfo);
+
+        //LBL PALABRA SECRETA
+        lblPalabraSecreta = new JLabel(String.valueOf(palabra.getMiPalabra()), SwingConstants.CENTER);
+        lblPalabraSecreta.setFont(new Font("Calibri",Font.BOLD,30));
+        lblPalabraSecreta.setBounds(318, 260, 220, 30);
+        this.add(lblPalabraSecreta);
+
+        //FONDO
+        ImageIcon imagen1 = new ImageIcon("10.png");
+        lblImagen = new JLabel();  
+        lblImagen.setBounds(20, 30, 280, 560);
+        lblImagen.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(lblImagen);
+    
+        panel1 = new JPanel();
+        panel1.setBounds(295,320,260,240);
         panel1.setLayout(new java.awt.GridLayout(6, 5));
-        panel1.setBounds(100, 100, 50, 50);
+        
+        //ALFABETO
         for(int i=65; i<=90; i++){
             JButton boton = new JButton(Character.toString ((char) i));
+            boton.setBounds(0,0,15,15);
+            boton.setForeground(Color.BLACK);
+            boton.setBackground(Color.WHITE);
             boton.setActionCommand(Character.toString ((char) i));
             boton.addActionListener(this);            
-            panel1.add(boton);    
+            panel1.add(boton); 
+            }   
+    
+        this.getContentPane().add(panel1);
+        //IMAGEN JUEGO
+        ImageIcon fondo = new ImageIcon("fondo.jpg");
+        lblFondo = new JLabel();  
+        lblFondo.setBounds(0, 0, 600, 700);
+        lblFondo.setIcon(new ImageIcon(fondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
+        this.add(lblFondo);    
         }        
-       
-
-
-    }
-
     public boolean finDeLaPalabra() {
         if (palabra.acerto() == true) {
             return true;
@@ -122,3 +122,6 @@ public class PpalGUI extends JFrame implements ActionListener{
     }
     
 }
+
+    
+

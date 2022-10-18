@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 
 public class InicioGUI2 extends Plantilla implements ActionListener{
     
+    
     private JLabel lblIngresarNombre;
     private JTextField txtIngresarNombre;
     private JButton btnParaQueSirve;

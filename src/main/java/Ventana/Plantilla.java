@@ -66,7 +66,7 @@ public class Plantilla extends JFrame implements ActionListener, MouseListener {
         this.add(scroll);
         
         //FONDO
-        ImageIcon imagen1 = new ImageIcon("Ahorcamesta.jpeg");
+        ImageIcon imagen1 = new ImageIcon("FondoAhorcado.jpeg");
         lblFondo = new JLabel();  
         lblFondo.setBounds(0, 0, 600, 450);   //10, 65, 380, 260
         lblFondo.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
