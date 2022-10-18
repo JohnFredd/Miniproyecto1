@@ -79,7 +79,7 @@ public class ComoJugarGUI extends Plantilla implements ActionListener{
                             
                             
                             """);    
-        lblTitulo.setText("Para qué sirve");
+        lblTitulo.setText("Cómo jugar");
         lblTitulo.setBounds(145, 22, 280,30);  // En minúsculas 430,22,130,30
     
     }
