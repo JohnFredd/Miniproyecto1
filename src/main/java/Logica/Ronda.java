@@ -20,7 +20,7 @@ public class Ronda {
         palabrasAdivinadas = 0;
         palabrasNoAdivinadas = 0;
         palabraActual = 0;
-        palabrasVsAciertos = new int[6];
+        palabrasVsAciertos = new int[18];
     }
     
     public void actualizarDatos(int palabra, boolean aciertaPalabra) {
