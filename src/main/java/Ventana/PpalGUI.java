@@ -152,17 +152,17 @@ public class PpalGUI extends JFrame implements ActionListener{
         if (finDeLaPalabra()) {
             if (ronda.getPalabrasTotales() -1 == ronda.getPalabraActual()) {
                 if (palabra.acerto()) {
-                    JOptionPane.showConfirmDialog(null, "¡¡¡Felicidades!!!. \nHas acertado la palabra", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "¡¡¡Felicidades!!!. \nHas acertado la palabra", "Fin de la palabra", JOptionPane.INFORMATION_MESSAGE);
                     ronda.actualizarDatos(palabra.getNumeroPalabra(),true);
                     irResultadosRonda();
                 } else {
-                    JOptionPane.showConfirmDialog(null, "¡¡¡Estás ahorcado!!!. \nNo has adivinado la palabra", "Alerta!", JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "¡¡¡Estás ahorcado!!!. \nNo has adivinado la palabra", "Fin de la palabra", JOptionPane.INFORMATION_MESSAGE);
                     ronda.actualizarDatos(palabra.getNumeroPalabra(),false);
                     irResultadosRonda();
                 }
             } else {
                 if (palabra.acerto()) {
-                    int resp = JOptionPane.showConfirmDialog(null, "¡¡¡Felicidades!!!. \nHas acertado la palabra\n¿Desesas continuar con las palabras restantes?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    int resp = JOptionPane.showConfirmDialog(null, "¡¡¡Felicidades!!!. \nHas acertado la palabra\n¿Desesas continuar con las palabras restantes?", "Fin de la palabra", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
                     if (resp == JOptionPane.NO_OPTION){
                         ronda.actualizarDatos(palabra.getNumeroPalabra(),true);
                         irResultadosRonda();
@@ -187,7 +187,7 @@ public class PpalGUI extends JFrame implements ActionListener{
                         txtAInfo.append("\nIntentos restantes: "+ intentosRestantes);
                     }
                 } else {
-                    int resp = JOptionPane.showConfirmDialog(null, "¡¡¡Estás ahorcado!!!. \nNo has adivinado la palabra\n¿Desesas continuar con las palabras restantes?", "Alerta!", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    int resp = JOptionPane.showConfirmDialog(null, "¡¡¡Estás ahorcado!!!. \nNo has adivinado la palabra\n¿Desesas continuar con las palabras restantes?", "Fin de la palabra", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
                     if (resp == JOptionPane.NO_OPTION){
                         ronda.actualizarDatos(palabra.getNumeroPalabra(),false);
                         irResultadosRonda();
