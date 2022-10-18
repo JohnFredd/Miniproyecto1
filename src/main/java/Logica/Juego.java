@@ -13,10 +13,22 @@ public class Juego {
     private String[][] palabrasVsTematica = {
     {"PERRO","Animales"},
     {"GATO","Animales"},
+    {"LORO","Animales"},
+    {"DELFÍN","Animales"},
+    {"OVEJA","Animales"},
+    {"ORNITORRINCO","Animales"},
     {"AMARILLO","Colores"},
     {"AZUL","Colores"},
+    {"ROJO","Colores"},
+    {"VERDE","Colores"},
+    {"BLANCO","Colores"},
+    {"NEGRO","Colores"},
     {"PAPAYA","Frutas"},
-    {"MANZANA","Frutas"}};
+    {"MANZANA","Frutas"},
+    {"PERA","Frutas"},
+    {"BANANO","Frutas"},
+    {"PIÑA","Frutas"},
+    {"GUANABANA","Frutas"}};
     
     public Juego(String nombreJugador) {
         this.nombreJugador = nombreJugador;

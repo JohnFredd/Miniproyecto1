@@ -59,6 +59,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         btnJugar.addMouseListener(this);
         btnJugar.setRolloverEnabled(false);
         btnJugar.addActionListener(this);
+        btnJugar.setEnabled(false);
         this.add(btnJugar);
         
         //CAMPO PALABRAS POR RONDA
@@ -155,7 +156,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         
         if(e.getSource() == combTematica) {
             String tematica=(String)combTematica.getSelectedItem();
-            setTitle(tematica);
+            btnJugar.setEnabled(true);
         }
     }
 
