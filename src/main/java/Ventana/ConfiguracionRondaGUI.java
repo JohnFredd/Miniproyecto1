@@ -12,6 +12,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -50,12 +51,13 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         
         //BOTON JUGAR
         btnJugar = new JButton("Jugar");
-        btnJugar.setEnabled(true);
-        btnJugar.setVisible(true);
         btnJugar.setBounds(418, 370, 140,30);
         btnJugar.setForeground(Color.BLACK);
         btnJugar.setBackground(Color.WHITE);
         btnJugar.setFont(new Font("chiller",Font.BOLD,22));
+        btnJugar.setFocusPainted(false);
+        btnJugar.addMouseListener(this);
+        btnJugar.setRolloverEnabled(false);
         btnJugar.addActionListener(this);
         this.add(btnJugar);
         
@@ -119,18 +121,33 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
                 juego = new Juego(nombreDelJugador);
             }
             Ronda ronda = new Ronda(juego, tematica, palabrasTotales);
-            irPpal(juego, ronda);
-            
-
+            irPpal(ronda);
         }
-
     }
     
     //Abre ventana Como jugar
-    public void irPpal(Juego juego,Ronda ronda){
+    public void irPpal(Ronda ronda){
         PpalGUI ventanaPpal = new PpalGUI(juego, ronda);
         ventanaPpal.setVisible(true);
         this.dispose();
+    }
+    
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        super.mouseEntered(e);
+        if(e.getSource() == btnJugar){
+            btnJugar.setBackground(Color.BLACK);
+            btnJugar.setForeground(Color.WHITE);
+        }
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        super.mouseExited(e);
+        if(e.getSource() == btnJugar){
+            btnJugar.setBackground(Color.WHITE);
+            btnJugar.setForeground(Color.BLACK);
+        }
     }
     
     @Override
@@ -142,7 +159,7 @@ public class ConfiguracionRondaGUI extends Plantilla implements ActionListener, 
         }
     }
 
-    private void irResultadosJuego() {
+    public void irResultadosJuego() {
         ResultadosJuegoGUI ventanaResultadosJuego = new ResultadosJuegoGUI("Resultados juego", juego);
         ventanaResultadosJuego.setVisible(true);
         this.dispose();

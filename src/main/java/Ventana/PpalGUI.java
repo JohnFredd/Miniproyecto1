@@ -6,8 +6,6 @@ import Logica.Palabra;
 import Logica.Ronda;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -32,9 +30,10 @@ public class PpalGUI extends JFrame implements ActionListener{
     private Ronda ronda;
     
     public PpalGUI(Juego juego, Ronda ronda){
-        iniciarComponentes();
         this.juego = juego;
         this.ronda = ronda;
+        otraPalabra();
+        iniciarComponentes();
         setSize(600,700);
         setLocationRelativeTo(null);
         setResizable(false);
