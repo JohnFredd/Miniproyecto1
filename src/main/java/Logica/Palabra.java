@@ -14,8 +14,8 @@ public class Palabra {
         intentosTotales = 10;
         intentosEjecutados = 0;
         palabraSecreta = juego.getPalabrasVsTematica()[numeroPalabra][0].toCharArray();
-        char miPalabra[] = new char[palabraSecreta.length];
-        for (int i = 0;i<miPalabra.length;i++) {
+        miPalabra = new char[palabraSecreta.length];
+        for (int i = 0;i<palabraSecreta.length;i++) {
             miPalabra[i] = '_';
         }
         aciertaPalabra = false;

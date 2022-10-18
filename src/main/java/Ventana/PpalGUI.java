@@ -43,16 +43,12 @@ public class PpalGUI extends JFrame implements ActionListener{
     }
     
     private void iniciarComponentes() {
-
         //TEXTAREA
         txtAInfo = new JTextArea();
         txtAInfo.setEditable(false);
-        txtAInfo.setVisible(true);
-
         String intentosTotales = String.valueOf(palabra.getIntentosTotales());
         String intentosEjecutados = String.valueOf(palabra.getIntentosEjecutados());
         String intentosRestantes = String.valueOf(palabra.getIntentosTotales()-palabra.getIntentosEjecutados());
-        
         txtAInfo.setFont(new Font("Calibri",Font.PLAIN,16));
         txtAInfo.setText("\nTemática: " + ronda.getTematica());
         txtAInfo.append("\nIntentos totales: " + intentosTotales);
@@ -60,24 +56,20 @@ public class PpalGUI extends JFrame implements ActionListener{
         txtAInfo.append("\nIntentos restantes: "+ intentosRestantes);
         txtAInfo.setBounds(345, 65, 160, 100);
         this.add(txtAInfo);
-
         //LBL PALABRA SECRETA
         lblPalabraSecreta = new JLabel(String.valueOf(palabra.getMiPalabra()), SwingConstants.CENTER);
         lblPalabraSecreta.setFont(new Font("Calibri",Font.BOLD,30));
         lblPalabraSecreta.setBounds(318, 260, 220, 30);
         this.add(lblPalabraSecreta);
-
         //FONDO
         ImageIcon imagen1 = new ImageIcon("10.png");
         lblImagen = new JLabel();  
         lblImagen.setBounds(20, 30, 280, 560);
         lblImagen.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(lblImagen.getWidth(), lblImagen.getHeight(), Image.SCALE_SMOOTH)));
         this.add(lblImagen);
-    
         panel1 = new JPanel();
         panel1.setBounds(295,320,260,240);
         panel1.setLayout(new java.awt.GridLayout(6, 5));
-        
         //ALFABETO
         for(int i=65; i<=90; i++){
             JButton boton = new JButton(Character.toString ((char) i));
@@ -95,8 +87,8 @@ public class PpalGUI extends JFrame implements ActionListener{
         lblFondo = new JLabel();  
         lblFondo.setBounds(0, 0, 600, 700);
         lblFondo.setIcon(new ImageIcon(fondo.getImage().getScaledInstance(lblFondo.getWidth(), lblFondo.getHeight(), Image.SCALE_SMOOTH)));
-        this.add(lblFondo);    
-        }        
+        this.add(lblFondo);
+    }
     public boolean finDeLaPalabra() {
         if (palabra.acerto() == true) {
             return true;
