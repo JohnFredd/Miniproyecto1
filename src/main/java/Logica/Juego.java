@@ -11,12 +11,12 @@ public class Juego {
     private double porcentajeMenor;
     private int[] palabrasVsAciertos;
     private String[][] palabrasVsTematica = {
-    {"Perro","Animales"},
-    {"Gato","Animales"},
-    {"Amarillo","Colores"},
-    {"Azul","Colores"},
-    {"Papaya","Frutas"},
-    {"Manzana","Frutas"}};
+    {"PERRO","Animales"},
+    {"GATO","Animales"},
+    {"AMARILLO","Colores"},
+    {"AZUL","Colores"},
+    {"PAPAYA","Frutas"},
+    {"MANZANA","Frutas"}};
     
     public Juego(String nombreJugador) {
         this.nombreJugador = nombreJugador;

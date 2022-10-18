@@ -38,7 +38,13 @@ public class Palabra {
     }
 
     public boolean acerto() {
-        return palabraSecreta == miPalabra;
+        boolean acierta = true;
+        for (int i = 0; i < palabraSecreta.length; i++) {
+            if(palabraSecreta[i] != miPalabra[i]) {
+                acierta = false;
+            }
+        }
+        return acierta;
     }
 
     public int getIntentosTotales() {

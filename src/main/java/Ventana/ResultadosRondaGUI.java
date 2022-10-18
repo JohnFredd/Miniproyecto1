@@ -20,8 +20,8 @@ public class ResultadosRondaGUI extends Plantilla {
     
     public ResultadosRondaGUI(String titulo, Ronda ronda, Juego juego) {
         super(titulo);
-        obtenerEstadisticas(ronda);
         this.juego = juego;
+        obtenerEstadisticas(ronda);
     }
     
     public void iniciarComponentes() {
@@ -95,6 +95,7 @@ public class ResultadosRondaGUI extends Plantilla {
         double percAdivinadas = adivinadas * 100 / total;
         int noAdivinadas = ronda.getPalabrasNoAdivinadas();
         double percNoAdivinadas = noAdivinadas * 100 / total;
+        int[] palabrasVsAciertos = ronda.getPalabrasVsAciertos();
         txtAInfo.setText("\n   Cantidad de palabras adivinadas:   ");
         txtAInfo.append(String.valueOf(adivinadas) + "\n");
         txtAInfo.append("   Porcentaje:   ");
@@ -102,6 +103,7 @@ public class ResultadosRondaGUI extends Plantilla {
         txtAInfo.append("\n   Cantidad de palabras no adivinadas:   ");
         txtAInfo.append(String.valueOf(noAdivinadas) + "\n");
         txtAInfo.append("   Porcentaje:   " + String.valueOf(percNoAdivinadas) + "%");
+        juego.actualizarDatosDeJuego(percAdivinadas, palabrasVsAciertos);
     }
     
     @Override
